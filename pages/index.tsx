@@ -1,4 +1,9 @@
 import React, { useState } from 'react';
+import { FaUser, FaLightbulb, FaFileAlt, FaGlobe, FaMobile, FaUnity } from 'react-icons/fa';
+import { BiLogoBlender } from 'react-icons/bi';
+import { SiGodotengine, SiAdobephotoshop } from 'react-icons/si';
+import { MdEmail } from 'react-icons/md';
+import { BsInstagram, BsLinkedin } from 'react-icons/bs';
 
 // We'll define the possible sections as a TypeScript type.
 type Section = 'about' | 'ideas' | 'cv' | 'webapps' | 'mobileapps' | 'unreal' | 'godot' | 'blender' | 'photoshop';
@@ -12,7 +17,29 @@ export default function HomePage() {
   const renderContent = () => {
     switch (activeSection) {
       case 'about':
-        return <p>This is the About section. You can add text, images, etc.</p>;
+        return (
+          <div>
+            <div className="mb-12">
+              <h1 className="text-4xl font-bold mb-6 leading-tight">
+                Hey, I'm Erkin Erdoğan—a junior full-stack developer and game developer.
+              </h1>
+              <p className="text-xl text-gray-700 leading-relaxed">
+                My journey into technology began at a young age, fueled by an endless curiosity about how things work. 
+                From experimenting with computers to mastering various creative and technical skills, 
+                I've always sought to push the boundaries of what I can create. Over the years, 
+                I've earned certifications in sculpting, animation, Photoshop, and pixel art, 
+                allowing me to bring digital worlds to life. Beyond game development, 
+                I also specialize in crafting cinematic scenes and virtual architectural tours, 
+                helping architects and designers visualize their projects in immersive detail.
+              </p>
+            </div>
+            
+            <div className="border-t border-gray-200 pt-12">
+              {/* Additional about content can go here */}
+              <p>This is the About section. You can add additional content, images, etc.</p>
+            </div>
+          </div>
+        );
       case 'ideas':
         return <p>This is the Ideas section. Write about your project ideas here.</p>;
       case 'cv':
@@ -37,96 +64,111 @@ export default function HomePage() {
   return (
     <div className="flex min-h-screen">
       {/* Left Sidebar */}
-      <aside className="w-64 bg-gray-200 p-4 flex flex-col justify-between">
-        <nav>
+      <aside className="w-64 bg-gray-200 p-6 flex flex-col">
+        <nav className="flex-1">
           {/* Main Navigation */}
           <div className="mb-12">
             <button
               onClick={() => setActiveSection('about')}
-              className={`block w-full text-left mb-3 p-2 rounded text-xl font-bold
-                ${activeSection === 'about' ? 'bg-gray-300' : 'bg-transparent'}`}
+              className={`w-full text-left py-2 px-3 rounded text-xl font-bold flex items-center gap-2
+                ${activeSection === 'about' ? 'bg-gray-300' : 'hover:bg-gray-100'}`}
             >
-              About
+              <FaUser className="text-lg" /> <span>About</span>
             </button>
             <button
               onClick={() => setActiveSection('ideas')}
-              className={`block w-full text-left mb-3 p-2 rounded text-xl font-bold
-                ${activeSection === 'ideas' ? 'bg-gray-300' : 'bg-transparent'}`}
+              className={`w-full text-left py-2 px-3 rounded text-xl font-bold flex items-center gap-2 mt-2
+                ${activeSection === 'ideas' ? 'bg-gray-300' : 'hover:bg-gray-100'}`}
             >
-              Ideas
+              <FaLightbulb className="text-lg" /> <span>Ideas</span>
             </button>
             <button
               onClick={() => setActiveSection('cv')}
-              className={`block w-full text-left mb-3 p-2 rounded text-xl font-bold
-                ${activeSection === 'cv' ? 'bg-gray-300' : 'bg-transparent'}`}
+              className={`w-full text-left py-2 px-3 rounded text-xl font-bold flex items-center gap-2 mt-2
+                ${activeSection === 'cv' ? 'bg-gray-300' : 'hover:bg-gray-100'}`}
             >
-              CV
+              <FaFileAlt className="text-lg" /> <span>CV</span>
             </button>
           </div>
 
           {/* Fullstack Section */}
           <div className="mb-12">
-            <h2 className="mb-3 text-sm text-gray-600 uppercase tracking-wider">Fullstack</h2>
+            <h2 className="text-sm text-gray-600 uppercase tracking-wider mb-3 px-3">Fullstack</h2>
             <button
               onClick={() => setActiveSection('webapps')}
-              className={`block w-full text-left mb-2 p-2 rounded text-sm
-                ${activeSection === 'webapps' ? 'bg-gray-300' : 'bg-transparent'}`}
+              className={`w-full text-left py-2 px-3 rounded text-sm flex items-center gap-2
+                ${activeSection === 'webapps' ? 'bg-gray-300' : 'hover:bg-gray-100'}`}
             >
-              Web Applications
+              <FaGlobe className="text-lg" /> <span>Web Applications</span>
             </button>
             <button
               onClick={() => setActiveSection('mobileapps')}
-              className={`block w-full text-left mb-2 p-2 rounded text-sm
-                ${activeSection === 'mobileapps' ? 'bg-gray-300' : 'bg-transparent'}`}
+              className={`w-full text-left py-2 px-3 rounded text-sm flex items-center gap-2 mt-1
+                ${activeSection === 'mobileapps' ? 'bg-gray-300' : 'hover:bg-gray-100'}`}
             >
-              Mobile Applications
+              <FaMobile className="text-lg" /> <span>Mobile Applications</span>
             </button>
           </div>
 
           {/* Projects Section */}
-          <div className="mb-6">
-            <h2 className="mb-3 text-sm text-gray-600 uppercase tracking-wider">Projects</h2>
+          <div className="mb-12">
+            <h2 className="text-sm text-gray-600 uppercase tracking-wider mb-3 px-3">Projects</h2>
             <button
               onClick={() => setActiveSection('unreal')}
-              className={`block w-full text-left mb-2 p-2 rounded text-sm
-                ${activeSection === 'unreal' ? 'bg-gray-300' : 'bg-transparent'}`}
+              className={`w-full text-left py-2 px-3 rounded text-sm flex items-center gap-2
+                ${activeSection === 'unreal' ? 'bg-gray-300' : 'hover:bg-gray-100'}`}
             >
-              Unreal Engine
+              <FaUnity className="text-lg" /> <span>Unreal Engine</span>
             </button>
             <button
               onClick={() => setActiveSection('godot')}
-              className={`block w-full text-left mb-2 p-2 rounded text-sm
-                ${activeSection === 'godot' ? 'bg-gray-300' : 'bg-transparent'}`}
+              className={`w-full text-left py-2 px-3 rounded text-sm flex items-center gap-2 mt-1
+                ${activeSection === 'godot' ? 'bg-gray-300' : 'hover:bg-gray-100'}`}
             >
-              Godot
+              <SiGodotengine className="text-lg" /> <span>Godot</span>
             </button>
             <button
               onClick={() => setActiveSection('blender')}
-              className={`block w-full text-left mb-2 p-2 rounded text-sm
-                ${activeSection === 'blender' ? 'bg-gray-300' : 'bg-transparent'}`}
+              className={`w-full text-left py-2 px-3 rounded text-sm flex items-center gap-2 mt-1
+                ${activeSection === 'blender' ? 'bg-gray-300' : 'hover:bg-gray-100'}`}
             >
-              Blender
+              <BiLogoBlender className="text-lg" /> <span>Blender</span>
             </button>
             <button
               onClick={() => setActiveSection('photoshop')}
-              className={`block w-full text-left mb-2 p-2 rounded text-sm
-                ${activeSection === 'photoshop' ? 'bg-gray-300' : 'bg-transparent'}`}
+              className={`w-full text-left py-2 px-3 rounded text-sm flex items-center gap-2 mt-1
+                ${activeSection === 'photoshop' ? 'bg-gray-300' : 'hover:bg-gray-100'}`}
             >
-              Photoshop
+              <SiAdobephotoshop className="text-lg" /> <span>Photoshop</span>
             </button>
           </div>
         </nav>
 
         {/* Contact Section */}
-        <div className="mt-auto">
-          <h2 className="mb-2 text-sm text-gray-600 uppercase tracking-wider">Contact</h2>
-          <div className="flex flex-col space-y-2">
-            <a href="mailto:your-email@example.com" className="hover:text-gray-600 text-sm">Mail</a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-600 text-sm">
-              Instagram
+        <div className="mt-auto pt-6">
+          <h2 className="text-sm text-gray-600 uppercase tracking-wider mb-3 px-3">Contact</h2>
+          <div className="flex flex-col space-y-1">
+            <a 
+              href="mailto:your-email@example.com" 
+              className="py-2 px-3 text-sm flex items-center gap-2 hover:bg-gray-100 rounded"
+            >
+              <MdEmail className="text-lg" /> <span>Mail</span>
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-600 text-sm">
-              LinkedIn
+            <a 
+              href="https://instagram.com" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="py-2 px-3 text-sm flex items-center gap-2 hover:bg-gray-100 rounded"
+            >
+              <BsInstagram className="text-lg" /> <span>Instagram</span>
+            </a>
+            <a 
+              href="https://linkedin.com" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="py-2 px-3 text-sm flex items-center gap-2 hover:bg-gray-100 rounded"
+            >
+              <BsLinkedin className="text-lg" /> <span>LinkedIn</span>
             </a>
           </div>
         </div>
