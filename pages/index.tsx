@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaUser, FaLightbulb, FaFileAlt, FaGlobe, FaMobile, FaUnity } from 'react-icons/fa';
 import { BiLogoBlender } from 'react-icons/bi';
 import { SiGodotengine, SiAdobephotoshop } from 'react-icons/si';
@@ -11,6 +11,28 @@ type Section = 'about' | 'ideas' | 'cv' | 'webapps' | 'mobileapps' | 'unreal' | 
 export default function HomePage() {
   // This state variable tracks which section is currently active.
   const [activeSection, setActiveSection] = useState<Section>('about');
+  const [dateTime, setDateTime] = useState('');
+
+  useEffect(() => {
+    // Update date and time
+    const updateDateTime = () => {
+      const now = new Date();
+      const options: Intl.DateTimeFormatOptions = {
+        weekday: 'long',
+        month: 'short',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric',
+        hour12: true
+      };
+      setDateTime(now.toLocaleDateString('en-US', options));
+    };
+
+    updateDateTime();
+    const timer = setInterval(updateDateTime, 60000); // Update every minute
+
+    return () => clearInterval(timer);
+  }, []);
 
   // We'll create a small function to render the main content
   // based on the active section.
@@ -18,30 +40,196 @@ export default function HomePage() {
     switch (activeSection) {
       case 'about':
         return (
-          <div>
-            <div className="mb-12">
-              <h1 className="text-4xl font-bold mb-6 leading-tight">
-                Hey, I'm Erkin Erdoğan—a junior full-stack developer and game developer.
-              </h1>
-              <p className="text-xl text-gray-700 leading-relaxed">
-                My journey into technology began at a young age, fueled by an endless curiosity about how things work. 
-                From experimenting with computers to mastering various creative and technical skills, 
-                I've always sought to push the boundaries of what I can create. Over the years, 
-                I've earned certifications in sculpting, animation, Photoshop, and pixel art, 
-                allowing me to bring digital worlds to life. Beyond game development, 
-                I also specialize in crafting cinematic scenes and virtual architectural tours, 
-                helping architects and designers visualize their projects in immersive detail.
-              </p>
+          <div className="max-w-[90%] mx-auto">
+            {/* Date display */}
+            <div className="flex justify-end mb-8">
+              <span className="text-gray-500">{dateTime}</span>
+            </div>
+
+            {/* Main content */}
+            <div className="mb-16">
+              <div className="text-[32px] leading-[1.4] text-gray-800 space-y-12">
+                <p>
+                  <span className="font-bold">Hey, I'm Erkin Erdoğan</span>—a junior full-stack developer and game developer. 
+                  My journey into technology began at a young age, fueled by an endless curiosity about how things work. 
+                  From experimenting with computers to mastering various creative and technical skills, 
+                  I've always sought to push the boundaries of what I can create.
+                </p>
+                
+                <p>
+                  Over the years, I've earned certifications in sculpting, animation, Photoshop, and pixel art, 
+                  allowing me to bring digital worlds to life. Beyond game development, I also specialize in crafting 
+                  cinematic scenes and virtual architectural tours, helping architects and designers visualize their 
+                  projects in immersive detail.
+                </p>
+              </div>
             </div>
             
             <div className="border-t border-gray-200 pt-12">
               {/* Additional about content can go here */}
-              <p>This is the About section. You can add additional content, images, etc.</p>
             </div>
           </div>
         );
       case 'ideas':
-        return <p>This is the Ideas section. Write about your project ideas here.</p>;
+        return (
+          <div className="max-w-[90%] mx-auto">
+            {/* Date display */}
+            <div className="flex justify-end mb-8">
+              <span className="text-gray-500">{dateTime}</span>
+            </div>
+
+            <div className="space-y-16">
+              {/* AI Companions Section */}
+              <section>
+                <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+                  <span className="text-blue-500">🔹</span>
+                  The Future of AI Companions
+                </h2>
+                <p className="text-xl text-gray-800 mb-8">
+                  AI today is functional—but not personal. I believe AI can go beyond chatbots and assistants to become truly adaptive, intelligent, and emotionally aware companions. Instead of rigid, pre-programmed responses, imagine an AI that learns, remembers, and evolves with you—an entity that becomes part of your world rather than just a tool.
+                </p>
+                <div className="space-y-4">
+                  <h3 className="text-lg font-semibold mb-2">Concepts:</h3>
+                  <p className="flex items-start gap-3">
+                    <span>🤖</span>
+                    <span><strong>Persistent AI Memory</strong> – AI that doesn't reset every session, but remembers past conversations, moods, and goals to develop a long-term dynamic relationship.</span>
+                  </p>
+                  <p className="flex items-start gap-3">
+                    <span>🎭</span>
+                    <span><strong>Character-Driven AI</strong> – A system that embodies fictional or historical figures, responding based on deep learning models trained on literature, history, or user interactions.</span>
+                  </p>
+                  <p className="flex items-start gap-3">
+                    <span>🧠</span>
+                    <span><strong>AI as a Rival & Mentor</strong> – Instead of just assisting, AI could challenge users in games, coding, or real-world problem-solving by acting as a mentor, competitor, or debate partner.</span>
+                  </p>
+                  <p className="flex items-start gap-3">
+                    <span>🔗</span>
+                    <span><strong>AI Integrated in Games</strong> – What if NPCs remembered your past choices across multiple playthroughs? Imagine an RPG where characters evolve based on their history with you.</span>
+                  </p>
+                </div>
+              </section>
+
+              {/* Fullstack Development Section */}
+              <section>
+                <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+                  <span className="text-blue-500">🔹</span>
+                  Fullstack Development Beyond the Basics
+                </h2>
+                <p className="text-xl text-gray-800 mb-8">
+                  Most fullstack applications today are either too generic or too complex to manage at scale. 
+                  My approach is to optimize for performance, scalability, and user-centric design, leveraging C#, .NET, 
+                  and modern front-end frameworks to create efficient and engaging applications.
+                </p>
+                <div className="space-y-4">
+                  <h3 className="text-lg font-semibold mb-2">Concepts:</h3>
+                  <p className="flex items-start gap-3">
+                    <span>🚀</span>
+                    <span><strong>Microservices-Based Web Apps</strong> – Scalable systems that can handle millions of users, 
+                    ensuring speed, security, and seamless updates.</span>
+                  </p>
+                  <p className="flex items-start gap-3">
+                    <span>💡</span>
+                    <span><strong>AI-Enhanced Content Platforms</strong> – Web apps that generate content, suggest optimizations, 
+                    or assist users with dynamic AI-generated elements.</span>
+                  </p>
+                  <p className="flex items-start gap-3">
+                    <span>🌐</span>
+                    <span><strong>Interactive Dashboards</strong> – A fullstack app that combines data visualization, 
+                    real-time analytics, and predictive AI to help users make informed decisions.</span>
+                  </p>
+                  <p className="flex items-start gap-3">
+                    <span>🕹</span>
+                    <span><strong>Game Backend Architecture</strong> – A backend system for multiplayer indie games that syncs 
+                    player progress, in-game economy, and leaderboard rankings in real time.</span>
+                  </p>
+                </div>
+              </section>
+
+              {/* Mobile Applications Section */}
+              <section>
+                <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+                  <span className="text-blue-500">🔹</span>
+                  Mobile Applications That Feel Like Extensions of You
+                </h2>
+                <p className="text-xl text-gray-800 mb-8">
+                  Most mobile apps focus on functionality, but I believe a great app should feel like an extension of your thoughts and habits. 
+                  Whether it's AI-powered personal assistants, habit trackers, or interactive experiences, my focus is on creating fluid, 
+                  responsive, and intelligent mobile applications.
+                </p>
+                <div className="space-y-4">
+                  <h3 className="text-lg font-semibold mb-2">Concepts:</h3>
+                  <p className="flex items-start gap-3">
+                    <span>📱</span>
+                    <span><strong>AI-Powered Personal Assistant App</strong> – A mobile AI that remembers your daily habits, 
+                    anticipates your needs, and suggests improvements based on your workflow.</span>
+                  </p>
+                  <p className="flex items-start gap-3">
+                    <span>🏋️</span>
+                    <span><strong>Gamified Productivity App</strong> – A task manager that turns your to-do list into an RPG-style game, 
+                    rewarding focus and efficiency.</span>
+                  </p>
+                  <p className="flex items-start gap-3">
+                    <span>🎮</span>
+                    <span><strong>Game Companion App</strong> – A mobile app that acts as a real-time game tracker, 
+                    strategy assistant, or co-op matchmaking tool for multiplayer experiences.</span>
+                  </p>
+                  <p className="flex items-start gap-3">
+                    <span>📊</span>
+                    <span><strong>AI-Driven Learning App</strong> – An adaptive mobile app that tracks your knowledge gaps 
+                    and generates custom study plans based on your learning progress.</span>
+                  </p>
+                </div>
+              </section>
+
+              {/* Gaming Section */}
+              <section>
+                <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+                  <span className="text-blue-500">🔹</span>
+                  Reinventing Gaming with Smart AI & Player-Driven Worlds
+                </h2>
+                <p className="text-xl text-gray-800 mb-8">
+                  Gaming has evolved from static, pre-defined narratives to player-driven experiences, but AI is still underutilized. 
+                  I believe that AI should adapt dynamically, create unexpected challenges, and even form long-term relationships with the player.
+                </p>
+                <div className="space-y-4">
+                  <h3 className="text-lg font-semibold mb-2">Concepts:</h3>
+                  <p className="flex items-start gap-3">
+                    <span>🎭</span>
+                    <span><strong>NPCs with Dynamic Memory</strong> – Characters that remember your actions across sessions, 
+                    evolving their behavior based on past interactions.</span>
+                  </p>
+                  <p className="flex items-start gap-3">
+                    <span>🕵🏻</span>
+                    <span><strong>AI-Generated Game Narratives</strong> – Story-driven games where AI writes side quests, 
+                    NPC dialogues, and plot twists in real-time based on player choices.</span>
+                  </p>
+                  <p className="flex items-start gap-3">
+                    <span>⚔️</span>
+                    <span><strong>AI-Controlled Rivals</strong> – Instead of predictable enemy AI, an evolving machine-learning opponent 
+                    that adapts, counters your strategies, and learns from past battles.</span>
+                  </p>
+                  <p className="flex items-start gap-3">
+                    <span>🌌</span>
+                    <span><strong>Infinite Procedural Worlds</strong> – AI-assisted procedural generation that creates unique cities, 
+                    ecosystems, and economies that change dynamically as you play.</span>
+                  </p>
+                </div>
+              </section>
+
+              {/* Final Thoughts */}
+              <section className="border-t border-gray-200 pt-8">
+                <h2 className="text-2xl font-bold mb-6">Final Thoughts</h2>
+                <p className="text-xl text-gray-800 mb-6">
+                  Some of these ideas are experiments. Some are future projects. But all of them represent the direction I want to take—merging AI, fullstack development, and gaming into something new.
+                </p>
+                <p className="text-xl text-gray-800 flex items-center gap-2">
+                  <span>💡</span>
+                  Which idea sparks your interest? Want to collaborate? Let's talk.
+                </p>
+              </section>
+            </div>
+          </div>
+        );
       case 'cv':
         return <p>This is the CV section. Show your experience or a PDF link here.</p>;
       case 'webapps':
@@ -62,7 +250,7 @@ export default function HomePage() {
   };
 
   return (
-    <div className="flex min-h-screen">
+    <div className="flex min-h-screen bg-white">
       {/* Left Sidebar */}
       <aside className="w-64 bg-gray-200 p-6 flex flex-col">
         <nav className="flex-1">
@@ -175,7 +363,7 @@ export default function HomePage() {
       </aside>
 
       {/* Right Content Area */}
-      <main className="flex-1 p-8">
+      <main className="flex-1 p-12">
         <h1 className="text-2xl font-bold mb-4 capitalize">{activeSection}</h1>
         {renderContent()}
       </main>
