@@ -231,7 +231,155 @@ export default function HomePage() {
           </div>
         );
       case 'cv':
-        return <p>This is the CV section. Show your experience or a PDF link here.</p>;
+        return (
+          <div className="max-w-[90%] mx-auto">
+            {/* Date display */}
+            <div className="flex justify-end mb-8">
+              <span className="text-gray-500">{dateTime}</span>
+            </div>
+
+            <div className="space-y-16">
+              {/* Header Section */}
+              <section className="flex justify-between items-start">
+                <div>
+                  <h1 className="text-4xl font-bold mb-4">Erkin Erdoğan</h1>
+                  <div className="space-y-1 text-gray-600">
+                    <p>Sakarya, Turkey</p>
+                    <p>erkinerdogan.dev@gmail.com</p>
+                    <p>www.linkedin.com/in/erkinerdoan</p>
+                  </div>
+                </div>
+              </section>
+
+              {/* Summary Section */}
+              <section>
+                <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+                  <span className="text-blue-500">🔹</span>
+                  Summary
+                </h2>
+                <p className="text-xl text-gray-800">
+                  I am a 24-year-old Junior Software Developer with over 2 years of self-driven experience in building web 
+                  applications and games. I specialize in .NET, C#, and Python, and have developed several personal projects—
+                  including an online soccer scheduling system, a series of hypercasual/mobile game clones, and a prototype 
+                  roguelike 2.5D pixel art game. I am actively seeking remote internship opportunities where I can contribute, 
+                  learn, and grow within a collaborative team environment.
+                </p>
+              </section>
+
+              {/* Work Experience Section */}
+              <section>
+                <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+                  <span className="text-blue-500">🔹</span>
+                  Work Experience
+                </h2>
+                <div className="space-y-8">
+                  <div>
+                    <h3 className="text-xl font-semibold">Freelance Fullstack Developer – Online Soccer Scheduling System</h3>
+                    <p className="text-gray-600 mb-3">September 2023 - February 2025</p>
+                    <ul className="space-y-2 text-gray-800">
+                      <li>• Designed and built an online platform to soccer match scheduling with a %87 percent 5 star feedbacks that also consists of unique player rating system.</li>
+                      <li>• Developed both front-end and back-end components only by myself to ensure a seamless user experience.</li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-semibold">Personal Project: Roguelike 2.5D Pixel Art Game (Prototype)</h3>
+                    <p className="text-gray-600 mb-3">December 2024 – Present</p>
+                    <ul className="space-y-2 text-gray-800">
+                      <li>• Still developing of a Hades inspired roguelike game, focusing on core mechanics and art direction for about 2-3 months.</li>
+                      <li>• With +4 year of indie gaming experience, beta tests will be here at the end of 2025.</li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-semibold">Freelance Indie Game Developer – Hypercasual & Mobile Game Clones</h3>
+                    <p className="text-gray-600 mb-3">February 2018 – December 2020</p>
+                    <ul className="space-y-2 text-gray-800">
+                      <li>• Developed and released 20+ hypercasual games and clones of popular mobile titles.</li>
+                      <li>• Managed the complete development cycle from concept to deployment across various platforms.</li>
+                      <li>• Applied agile methodologies to iterate quickly and meet project deadlines.</li>
+                    </ul>
+                  </div>
+                </div>
+              </section>
+
+              {/* Technical Skills Section */}
+              <section>
+                <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+                  <span className="text-blue-500">🔹</span>
+                  Technical Skills
+                </h2>
+                <p className="text-xl text-gray-800">
+                  C#, .NET Core, ASP.NET Core, EF Core, Dapper, JavaScript, TypeScript, HTML5, CSS3, React, Vue.js, Node.js, 
+                  Bootstrap, Tailwind CSS, Git, Docker, MySQL, PostgreSQL, SQL Server, MongoDB, Unity, Unreal Engine, Godot, 
+                  Python, Blender, Adobe Photoshop, Figma
+                </p>
+              </section>
+
+              {/* Education Section */}
+              <section>
+                <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+                  <span className="text-blue-500">🔹</span>
+                  Education
+                </h2>
+                <div className="space-y-4">
+                  <div>
+                    <h3 className="text-xl font-semibold">Computer Science | Sakarya University</h3>
+                    <p className="text-gray-600">September 2024 – Present</p>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold">Electrical And Electronic Engineering | Eskisehir Osmangazi University</h3>
+                    <p className="text-gray-600">September 2019 - 2024 July</p>
+                    <p className="text-gray-800 mt-1">Switched to Computer Science</p>
+                  </div>
+                </div>
+              </section>
+
+              {/* Languages Section */}
+              <section>
+                <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+                  <span className="text-blue-500">🔹</span>
+                  Languages
+                </h2>
+                <div className="space-y-2">
+                  <p className="text-xl text-gray-800"><strong>English:</strong> Near Native Fluency (C2)</p>
+                  <p className="text-xl text-gray-800"><strong>Japanese:</strong> N4</p>
+                  <p className="text-xl text-gray-800"><strong>Turkish:</strong> Native</p>
+                </div>
+              </section>
+
+              {/* Certificates Section */}
+              <section>
+                <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+                  <span className="text-blue-500">🔹</span>
+                  Certificates
+                </h2>
+                <div className="space-y-2 text-xl text-gray-800">
+                  <p>Professional Photoshop Certificate By Navras Academy</p>
+                  <p>Professional Blender Certificate By Navras Academy</p>
+                  <p>Professional Unreal Engine Certificate By Navras Academy</p>
+                  <p className="mt-4 text-gray-600">The Academy training is still ongoing, more certificates will be here within the end of 2025.</p>
+                </div>
+              </section>
+
+              {/* Repository Section */}
+              <section>
+                <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+                  <span className="text-blue-500">🔹</span>
+                  Repository
+                </h2>
+                <a 
+                  href="https://github.com/Lynph9" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-xl text-blue-500 hover:text-blue-600"
+                >
+                  https://github.com/Lynph9
+                </a>
+              </section>
+            </div>
+          </div>
+        );
       case 'webapps':
         return <p>Web Applications content here.</p>;
       case 'mobileapps':
