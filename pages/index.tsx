@@ -240,13 +240,22 @@ export default function HomePage() {
 
             <div className="space-y-16">
               {/* Header Section */}
-              <section className="flex justify-between items-start">
-                <div>
-                  <h1 className="text-4xl font-bold mb-4">Erkin Erdoğan</h1>
-                  <div className="space-y-1 text-gray-600">
-                    <p>Sakarya, Turkey</p>
-                    <p>erkinerdogan.dev@gmail.com</p>
-                    <p>www.linkedin.com/in/erkinerdoan</p>
+              <section className="flex justify-between items-start gap-8">
+                <div className="flex items-start gap-8">
+                  <div className="w-48 h-48 rounded-full overflow-hidden">
+                    <img 
+                      src="/profile.jpg" 
+                      alt="Erkin Erdoğan"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <h1 className="text-4xl font-bold mb-4">Erkin Erdoğan</h1>
+                    <div className="space-y-1 text-gray-600">
+                      <p>Sakarya, Turkey</p>
+                      <p>erkinerdogan.dev@gmail.com</p>
+                      <p>www.linkedin.com/in/erkinerdoan</p>
+                    </div>
                   </div>
                 </div>
               </section>
@@ -381,7 +390,116 @@ export default function HomePage() {
           </div>
         );
       case 'webapps':
-        return <p>Web Applications content here.</p>;
+        return (
+          <div className="max-w-[90%] mx-auto">
+            {/* Date display */}
+            <div className="flex justify-end mb-8">
+              <span className="text-gray-500">{dateTime}</span>
+            </div>
+
+            <div className="space-y-16">
+              {/* Current Project Section */}
+              <section>
+                <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+                  <span className="text-blue-500">🔹</span>
+                  Portfolio Website
+                </h2>
+                <div className="space-y-8 text-xl text-gray-800">
+                  <p>
+                    This website was built by me, Erkin Erdoğan, completely from scratch. 
+                    I leveraged a modern tech stack including Next.js for a robust React framework, 
+                    TypeScript for type safety, Tailwind CSS for rapid and responsive styling, and 
+                    ESLint to ensure clean code. The process involved careful planning, design, and 
+                    manual coding from scratch, which demonstrates my commitment to mastering full 
+                    stack development.
+                  </p>
+                  <p>
+                    My progress so far includes designing a minimalist, single-page interface, 
+                    developing dynamic content switching, and implementing responsive styles to 
+                    ensure a smooth user experience. Each component of this portfolio reflects 
+                    the skills and passion I bring to web development.
+                  </p>
+                </div>
+              </section>
+
+              {/* Upcoming Project Section */}
+              <section>
+                <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+                  <span className="text-blue-500">🔹</span>
+                  Upcoming Project
+                </h2>
+                <p className="text-xl text-gray-800">
+                  Looking ahead, once I complete my current mobile application project, I will 
+                  begin work on a car retail website. This upcoming project aims to showcase 
+                  a comprehensive online platform for car sales, featuring inventory management, 
+                  a user-friendly interface, and scalable web architecture.
+                </p>
+              </section>
+
+              {/* Technologies Used */}
+              <section className="border-t border-gray-200 pt-8">
+                <h2 className="text-2xl font-bold mb-6">Technologies</h2>
+                
+                {/* Backend Technologies */}
+                <div className="mb-6">
+                  <h3 className="text-lg font-semibold mb-3">Backend & Database</h3>
+                  <div className="flex flex-wrap gap-3">
+                    <span className="px-4 py-2 bg-gray-100 rounded-full text-gray-800">C#</span>
+                    <span className="px-4 py-2 bg-gray-100 rounded-full text-gray-800">.NET Core</span>
+                    <span className="px-4 py-2 bg-gray-100 rounded-full text-gray-800">ASP.NET Core</span>
+                    <span className="px-4 py-2 bg-gray-100 rounded-full text-gray-800">EF Core</span>
+                    <span className="px-4 py-2 bg-gray-100 rounded-full text-gray-800">Dapper</span>
+                    <span className="px-4 py-2 bg-gray-100 rounded-full text-gray-800">Node.js</span>
+                    <span className="px-4 py-2 bg-gray-100 rounded-full text-gray-800">MySQL</span>
+                    <span className="px-4 py-2 bg-gray-100 rounded-full text-gray-800">PostgreSQL</span>
+                    <span className="px-4 py-2 bg-gray-100 rounded-full text-gray-800">SQL Server</span>
+                    <span className="px-4 py-2 bg-gray-100 rounded-full text-gray-800">MongoDB</span>
+                  </div>
+                </div>
+
+                {/* Frontend Technologies */}
+                <div className="mb-6">
+                  <h3 className="text-lg font-semibold mb-3">Frontend</h3>
+                  <div className="flex flex-wrap gap-3">
+                    <span className="px-4 py-2 bg-gray-100 rounded-full text-gray-800">JavaScript</span>
+                    <span className="px-4 py-2 bg-gray-100 rounded-full text-gray-800">TypeScript</span>
+                    <span className="px-4 py-2 bg-gray-100 rounded-full text-gray-800">React</span>
+                    <span className="px-4 py-2 bg-gray-100 rounded-full text-gray-800">Next.js</span>
+                    <span className="px-4 py-2 bg-gray-100 rounded-full text-gray-800">Vue.js</span>
+                    <span className="px-4 py-2 bg-gray-100 rounded-full text-gray-800">HTML5</span>
+                    <span className="px-4 py-2 bg-gray-100 rounded-full text-gray-800">CSS3</span>
+                    <span className="px-4 py-2 bg-gray-100 rounded-full text-gray-800">Bootstrap</span>
+                    <span className="px-4 py-2 bg-gray-100 rounded-full text-gray-800">Tailwind CSS</span>
+                  </div>
+                </div>
+
+                {/* Development Tools */}
+                <div className="mb-6">
+                  <h3 className="text-lg font-semibold mb-3">Development Tools</h3>
+                  <div className="flex flex-wrap gap-3">
+                    <span className="px-4 py-2 bg-gray-100 rounded-full text-gray-800">Git</span>
+                    <span className="px-4 py-2 bg-gray-100 rounded-full text-gray-800">Docker</span>
+                    <span className="px-4 py-2 bg-gray-100 rounded-full text-gray-800">ESLint</span>
+                    <span className="px-4 py-2 bg-gray-100 rounded-full text-gray-800">Figma</span>
+                  </div>
+                </div>
+
+                {/* Game Development */}
+                <div>
+                  <h3 className="text-lg font-semibold mb-3">Game Development & Creative Tools</h3>
+                  <div className="flex flex-wrap gap-3">
+                    <span className="px-4 py-2 bg-gray-100 rounded-full text-gray-800">Unity</span>
+                    <span className="px-4 py-2 bg-gray-100 rounded-full text-gray-800">Unreal Engine</span>
+                    <span className="px-4 py-2 bg-gray-100 rounded-full text-gray-800">Godot</span>
+                    <span className="px-4 py-2 bg-gray-100 rounded-full text-gray-800">Python</span>
+                    <span className="px-4 py-2 bg-gray-100 rounded-full text-gray-800">Blender</span>
+                    <span className="px-4 py-2 bg-gray-100 rounded-full text-gray-800">Adobe Photoshop</span>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        );
       case 'mobileapps':
         return <p>Mobile Applications content here.</p>;
       case 'unreal':
@@ -485,7 +603,7 @@ export default function HomePage() {
           <h2 className="text-sm text-gray-600 uppercase tracking-wider mb-3 px-3">Contact</h2>
           <div className="flex flex-col space-y-1">
             <a 
-              href="mailto:your-email@example.com" 
+              href="mailto:erkinerdogan.dev@gmail.com" 
               className="py-2 px-3 text-sm flex items-center gap-2 hover:bg-gray-100 rounded"
             >
               <MdEmail className="text-lg" /> <span>Mail</span>
@@ -499,7 +617,7 @@ export default function HomePage() {
               <BsInstagram className="text-lg" /> <span>Instagram</span>
             </a>
             <a 
-              href="https://linkedin.com" 
+              href="https://linkedin.com/in/erkinerdoan" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="py-2 px-3 text-sm flex items-center gap-2 hover:bg-gray-100 rounded"
@@ -512,7 +630,6 @@ export default function HomePage() {
 
       {/* Right Content Area */}
       <main className="flex-1 p-12">
-        <h1 className="text-2xl font-bold mb-4 capitalize">{activeSection}</h1>
         {renderContent()}
       </main>
     </div>
