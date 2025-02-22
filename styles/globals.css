@@ -31,3 +31,7 @@ body {
   @apply font-poppins;
 }
 
+.slide-transition {
+  transition: transform 0.3s ease-in-out;
+}
+

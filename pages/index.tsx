@@ -4,6 +4,8 @@ import { BiLogoBlender } from 'react-icons/bi';
 import { SiGodotengine, SiAdobephotoshop } from 'react-icons/si';
 import { MdEmail } from 'react-icons/md';
 import { BsInstagram, BsLinkedin } from 'react-icons/bs';
+import Image from 'next/image';
+import ImageSlider from '../components/ImageSlider';
 
 // We'll define the possible sections as a TypeScript type.
 type Section = 'about' | 'ideas' | 'cv' | 'webapps' | 'mobileapps' | 'unreal' | 'godot' | 'blender' | 'photoshop';
@@ -12,6 +14,12 @@ export default function HomePage() {
   // This state variable tracks which section is currently active.
   const [activeSection, setActiveSection] = useState<Section>('about');
   const [dateTime, setDateTime] = useState('');
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const unrealSlides = [
+    '/blender/model-gray.jpg',
+    '/blender/model-colored.jpg',
+    '/blender/model-scene.jpg'
+  ];
 
   useEffect(() => {
     // Update date and time
@@ -501,9 +509,188 @@ export default function HomePage() {
           </div>
         );
       case 'mobileapps':
-        return <p>Mobile Applications content here.</p>;
+        return (
+          <div className="max-w-[90%] mx-auto">
+            {/* Date display */}
+            <div className="flex justify-end mb-8">
+              <span className="text-gray-500">{dateTime}</span>
+            </div>
+
+            <div className="space-y-16">
+              {/* Introduction Section */}
+              <section>
+                <p className="text-2xl font-semibold text-gray-800 leading-relaxed pb-8 mb-8 border-b border-gray-200/60">
+                  Mobile apps should feel like an extension of the user, not just another tool. 
+                  My approach to app development is focused on seamless user experience, AI integration, 
+                  and real-world utility—creating applications that understand, adapt, and evolve with the user.
+                </p>
+              </section>
+
+              {/* Main Section */}
+              <section>
+                <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+                  <span className="text-blue-500">🔹</span>
+                  AI-Powered & Data-Driven Mobile Solutions
+                </h2>
+                <p className="text-xl text-gray-800 mb-8">
+                  I develop cross-platform mobile applications using .NET MAUI, Flutter, and native frameworks, 
+                  ensuring smooth performance across both iOS and Android. My focus is on building intelligent, 
+                  intuitive, and scalable applications that don't just solve problems but enhance daily life.
+                </p>
+
+                <div className="space-y-8">
+                  <div>
+                    <h3 className="text-lg font-semibold mb-4">Concepts & Experience:</h3>
+                    <div className="space-y-6">
+                      <div className="flex items-start gap-3">
+                        <span className="text-2xl">📱</span>
+                        <div>
+                          <p className="font-semibold">Mood Tracker App [In Development]</p>
+                          <p className="text-gray-800">
+                            Currently building a private AI-driven mood tracking app designed for personal 
+                            well-being and self-improvement, available for iOS and Android. 
+                            (Details remain confidential.)
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="flex items-start gap-3">
+                        <span className="text-2xl">⚽</span>
+                        <div>
+                          <p className="font-semibold">Online Soccer Scheduling App (2023-2025)</p>
+                          <p className="text-gray-800">
+                            Developed an automated scheduling platform that allows players to find, organize, 
+                            and rate matches, streamlining game coordination for sports communities.
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="flex items-start gap-3">
+                        <span className="text-2xl">🧠</span>
+                        <div>
+                          <p className="font-semibold">Smart Productivity Apps</p>
+                          <p className="text-gray-800">
+                            Exploring habit-building apps, gamified task managers, and AI-assisted learning 
+                            platforms that track progress dynamically.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              {/* Vision Section */}
+              <section>
+                <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+                  <span className="text-blue-500">🔹</span>
+                  Future Vision
+                </h2>
+                <p className="text-xl text-gray-800">
+                  Merging AI, fullstack development, and mobile experiences to create apps that not only 
+                  assist but actively learn, predict, and improve user workflows.
+                </p>
+              </section>
+
+              {/* Call to Action */}
+              <section className="border-t border-gray-200 pt-8">
+                <p className="text-xl text-gray-800 flex items-center gap-3">
+                  <span>💬</span>
+                  Have a mobile app idea? Let's build something together.
+                </p>
+              </section>
+            </div>
+          </div>
+        );
       case 'unreal':
-        return <p>Unreal Engine content here.</p>;
+        return (
+          <div className="max-w-[90%] mx-auto">
+            {/* Date display */}
+            <div className="flex justify-end mb-8">
+              <span className="text-gray-500">{dateTime}</span>
+            </div>
+
+            <div className="flex gap-12">
+              {/* Left Content */}
+              <div className="w-1/2 space-y-8">
+                <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+                  <span className="text-blue-500">🔹</span>
+                  Unreal Engine: Lessons Learned, Paths Redefined
+                </h2>
+                
+                <div className="space-y-6 text-gray-800">
+                  {/* New Introduction Section */}
+                  <div className="pb-6 border-b border-gray-200">
+                    <p className="text-lg mb-4">
+                      I am currently receiving training at Navras Academy, Turkey's first Unreal Engine and 
+                      Epic Games-approved academy. Through their structured program, I have earned a certificate 
+                      by successfully completing assigned tasks and actively participating in classes.
+                    </p>
+                    <p className="text-lg">
+                      At Navras Academy, I have been learning everything a solo game developer needs—from 
+                      foundational mechanics to advanced Unreal Engine workflows. While I will go into more 
+                      detail in the relevant sections, this education continues to refine my technical expertise, 
+                      problem-solving abilities, and game development skills.
+                    </p>
+                  </div>
+
+                  {/* Existing Content */}
+                  <p className="text-lg">
+                    Game development isn't just about finishing a project—it's about what you learn along the way. 
+                    My experience with Unreal Engine has been a mix of experimentation, frustration, breakthroughs, 
+                    and setbacks, and I want to be as honest as possible about it.
+                  </p>
+
+                  <p className="text-lg">
+                    I once worked on a game concept similar to Chained Together, where the character had smooth, 
+                    fluid animations, IK (Inverse Kinematics), ledge climbing, and dynamic movement mechanics. 
+                    It was one of my most ambitious projects, and I poured a lot into perfecting the movement system.
+                  </p>
+
+                  <p className="text-lg">
+                    But over time, the project fell apart. The plugins I relied on became outdated, conflicting 
+                    with each other, and because I hadn't updated the project regularly, it eventually became unusable. 
+                    That was a hard lesson—one that taught me the importance of maintaining projects, keeping 
+                    dependencies in check, and planning ahead for long-term sustainability.
+                  </p>
+
+                  <div className="pt-6">
+                    <p className="text-lg font-semibold mb-4">
+                      Even though I can't showcase any footage from that project, I don't see it as a failure. It taught me:
+                    </p>
+                    <ul className="space-y-2">
+                      <li className="flex items-center gap-2">
+                        <span className="text-green-500">✔</span>
+                        How to handle animations and IK in Unreal Engine.
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <span className="text-green-500">✔</span>
+                        How to work with Blueprint visual scripting effectively.
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <span className="text-green-500">✔</span>
+                        How Unreal's ecosystem works—from movement mechanics to physics-based interactions.
+                      </li>
+                    </ul>
+                  </div>
+
+                  <p className="text-lg pt-4">
+                    Right now, I'm channeling everything I learned into new projects, and I'll keep posting updates 
+                    as I progress. Unreal Engine remains one of my favorite tools, and while that game may never 
+                    see the light of day, the experience shaped me into a better developer.
+                  </p>
+                </div>
+              </div>
+
+              {/* Right Content - Image Slideshow */}
+              <div className="w-1/2 relative">
+                <div className="aspect-w-16 aspect-h-9 bg-gray-100 rounded-lg overflow-hidden">
+                  <ImageSlider images={unrealSlides} />
+                </div>
+              </div>
+            </div>
+          </div>
+        );
       case 'godot':
         return <p>Godot Projects content here.</p>;
       case 'blender':
