@@ -3,7 +3,7 @@ import { FaUser, FaLightbulb, FaFileAlt, FaGlobe, FaMobile, FaUnity } from 'reac
 import { BiLogoBlender } from 'react-icons/bi';
 import { SiGodotengine, SiAdobephotoshop } from 'react-icons/si';
 import { MdEmail } from 'react-icons/md';
-import { BsInstagram, BsLinkedin } from 'react-icons/bs';
+import { BsInstagram, BsLinkedin, BsGithub } from 'react-icons/bs';
 import Image from 'next/image';
 import ImageSlider from '../components/ImageSlider';
 import VideoPlayer from '../components/VideoPlayer';
@@ -686,7 +686,7 @@ export default function HomePage() {
 
               {/* Right Content - Image Slideshow */}
               <div className="w-1/2 relative">
-                <div className="aspect-w-16 aspect-h-9 bg-gray-100 rounded-lg overflow-hidden">
+                <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden">
                   <ImageSlider images={unrealSlides} height="600px" />
                 </div>
               </div>
@@ -880,7 +880,7 @@ export default function HomePage() {
 
                 {/* Right Content - Image Slider */}
                 <div className="w-1/2">
-                  <div className="aspect-w-16 aspect-h-9 bg-gray-100 rounded-lg overflow-hidden">
+                  <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden">
                     <ImageSlider 
                       images={['/godot/demon.jpg', '/godot/fox.jpg', '/godot/plane.jpg']} 
                       height="300px"
@@ -977,9 +977,24 @@ export default function HomePage() {
 
                 {/* Right Content - Portfolio Slideshow */}
                 <div className="w-1/2">
-                  <div className="relative" style={{ height: '90vh' }}>
+                  <div className="relative rounded-lg overflow-hidden">
                     <ImageSlider 
-                      images={['/godot/1.jpg', /* ... */]} 
+                      images={[
+                        '/godot/1.jpg',
+                        '/godot/2.jpg',
+                        '/godot/3.jpg',
+                        '/godot/4.jpg',
+                        '/godot/5.jpg',
+                        '/godot/6.jpg',
+                        '/godot/7.jpg',
+                        '/godot/8.jpg',
+                        '/godot/9.jpg',
+                        '/godot/10.jpg',
+                        '/godot/11.jpg',
+                        '/godot/12.jpg',
+                        '/godot/13.jpg',
+                        '/godot/14.jpg'
+                      ]} 
                       height="90vh"
                     />
                   </div>
@@ -1087,15 +1102,15 @@ export default function HomePage() {
               <MdEmail className="text-lg" /> <span>Mail</span>
             </a>
             <a 
-              href="https://instagram.com" 
+              href="https://github.com/Lynph9" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="py-2 px-3 text-sm flex items-center gap-2 hover:bg-gray-100 rounded"
             >
-              <BsInstagram className="text-lg" /> <span>Instagram</span>
+              <BsGithub className="text-lg" /> <span>GitHub</span>
             </a>
             <a 
-              href="https://linkedin.com/in/erkinerdoan" 
+              href="https://www.linkedin.com/in/erkinerdoan" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="py-2 px-3 text-sm flex items-center gap-2 hover:bg-gray-100 rounded"
