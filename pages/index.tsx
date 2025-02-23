@@ -687,7 +687,7 @@ export default function HomePage() {
               {/* Right Content - Image Slideshow */}
               <div className="w-1/2 relative">
                 <div className="aspect-w-16 aspect-h-9 bg-gray-100 rounded-lg overflow-hidden">
-                  <ImageSlider images={unrealSlides} />
+                  <ImageSlider images={unrealSlides} height="600px" />
                 </div>
               </div>
             </div>
@@ -825,7 +825,7 @@ export default function HomePage() {
               <div className="flex gap-12">
                 {/* Left Content */}
                 <div className="w-1/2">
-                  <div className="text-gray-800 space-y-6 border-r-2 border-blue-500/20 pr-8">
+                  <div className="text-gray-800 space-y-6 border-r-2 border-blue-500/20 pr-8 min-h-[300px]">
                     <p className="text-lg">
                       I blindly jumped into Blender, eager to sculpt a character for my game—a 
                       decision that quickly turned into a trial by fire. While most start with 
@@ -864,7 +864,7 @@ export default function HomePage() {
               <div className="flex gap-12">
                 {/* Left Content */}
                 <div className="w-1/2">
-                  <div className="text-gray-800 space-y-6 border-r-2 border-blue-500/20 pr-8">
+                  <div className="text-gray-800 space-y-6 border-r-2 border-blue-500/20 pr-8 min-h-[300px]">
                     <p className="text-lg">
                       After successfully sculpting an entire character from scratch, I shifted my focus 
                       toward refining both modeling and sculpting techniques. Through extensive practice 
@@ -878,16 +878,116 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                {/* Right Content - For Images */}
+                {/* Right Content - Image Slider */}
                 <div className="w-1/2">
-                  {/* Add your showcase content here */}
+                  <div className="aspect-w-16 aspect-h-9 bg-gray-100 rounded-lg overflow-hidden">
+                    <ImageSlider 
+                      images={['/godot/demon.jpg', '/godot/fox.jpg', '/godot/plane.jpg']} 
+                      height="300px"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Third Dividing Line */}
+              <hr className="border-t-2 border-blue-500/20" />
+
+              {/* Fourth Section */}
+              <div className="flex gap-12">
+                {/* Left Content */}
+                <div className="w-1/2">
+                  <div className="text-gray-800 space-y-6 border-r-2 border-blue-500/20 pr-8 min-h-[300px]">
+                    <p className="text-lg">
+                      After mastering sculpting and modeling, I delved into animation and lighting, 
+                      aiming to understand how bones, rigging, and scene illumination bring 3D models 
+                      to life. Experimenting with keyframe animations, inverse kinematics, and dynamic 
+                      lighting, I gained hands-on experience in creating realistic movement and visually 
+                      immersive environments.
+                    </p>
+
+                    <p className="text-lg mt-4">
+                      Here are a few examples of my work, where I applied these techniques to enhance 
+                      my projects:
+                    </p>
+                  </div>
+                </div>
+
+                {/* Right Content - Robot GIF */}
+                <div className="w-1/2">
+                  <div className="relative h-[300px] rounded-lg overflow-hidden">
+                    <VideoPlayer 
+                      src="/godot/robot.gif"
+                      type="image/gif"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         );
       case 'photoshop':
-        return <p>Photoshop content here.</p>;
+        return (
+          <div className="max-w-[90%] mx-auto">
+            {/* Date display */}
+            <div className="flex justify-end mb-8">
+              <span className="text-gray-500">{dateTime}</span>
+            </div>
+
+            <div className="space-y-12">
+              {/* First Section */}
+              <div className="flex gap-12">
+                {/* Left Content */}
+                <div className="w-1/2">
+                  <div className="text-gray-800 space-y-6 border-r-2 border-blue-500/20 pr-8 min-h-[300px]">
+                    <h2 className="text-2xl font-bold flex items-center gap-2">
+                      <span className="text-blue-500">🔹</span>
+                      Adobe Photoshop Mastery
+                    </h2>
+                    
+                    <p className="text-lg">
+                      I began learning Photoshop with the goal of creating my own banners, UI elements, 
+                      and opening screens for my projects. Through Navras Academy, I explored every feature 
+                      within Adobe Photoshop, from basic photo editing to advanced mockup designs.
+                    </p>
+
+                    <p className="text-lg">Over time, I became proficient in:</p>
+                    
+                    <ul className="space-y-2">
+                      <li className="flex items-start gap-2">
+                        <span className="text-green-500 shrink-0">✔</span>
+                        <span>Graphic design & digital art – Crafting high-quality visuals for branding and UI.</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-green-500 shrink-0">✔</span>
+                        <span>Mockup creation – Designing professional-level mockups for presentations and marketing.</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-green-500 shrink-0">✔</span>
+                        <span>Advanced photo manipulation – Enhancing, retouching, and compositing images seamlessly.</span>
+                      </li>
+                    </ul>
+
+                    <p className="text-lg">
+                      Whether it's a simple design or a complex layered composition, Photoshop became 
+                      an essential tool in my workflow, allowing me to create high-quality assets for 
+                      both gaming and web development.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Right Content - Portfolio Slideshow */}
+                <div className="w-1/2">
+                  <div className="relative" style={{ height: '90vh' }}>
+                    <ImageSlider 
+                      images={['/godot/1.jpg', /* ... */]} 
+                      height="90vh"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
       default:
         return null;
     }
