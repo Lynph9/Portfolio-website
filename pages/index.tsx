@@ -6,6 +6,8 @@ import { MdEmail } from 'react-icons/md';
 import { BsInstagram, BsLinkedin } from 'react-icons/bs';
 import Image from 'next/image';
 import ImageSlider from '../components/ImageSlider';
+import VideoPlayer from '../components/VideoPlayer';
+import GifCarousel from '../components/GifCarousel';
 
 // We'll define the possible sections as a TypeScript type.
 type Section = 'about' | 'ideas' | 'cv' | 'webapps' | 'mobileapps' | 'unreal' | 'godot' | 'blender' | 'photoshop';
@@ -692,9 +694,198 @@ export default function HomePage() {
           </div>
         );
       case 'godot':
-        return <p>Godot Projects content here.</p>;
+        return (
+          <div className="max-w-[90%] mx-auto">
+            {/* Date display */}
+            <div className="flex justify-end mb-8">
+              <span className="text-gray-500">{dateTime}</span>
+            </div>
+
+            <div className="space-y-16">
+              {/* Title */}
+              <h2 className="text-2xl font-bold flex items-center gap-2">
+                <span className="text-blue-500">🔹</span>
+                Godot Game Development
+              </h2>
+
+              {/* First Section - Text Left, GIF Right */}
+              <div className="flex gap-12 items-center">
+                <div className="w-1/2">
+                  <p className="text-lg text-gray-800">
+                    You can now catch the first glimpses of my game in development. 
+                    To optimize the weapon system, I utilized Marker2D nodes, allowing me 
+                    to modulate attacks dynamically while reusing the same animations—significantly 
+                    improving efficiency and saving development time.
+                  </p>
+                </div>
+                <div className="w-1/2">
+                  <div className="aspect-w-16 aspect-h-9 bg-gray-100 rounded-lg overflow-hidden">
+                    <VideoPlayer 
+                      src="/godot/weapon-preview.gif"
+                      type="image/gif"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Second Section - GIF Left, Text Right */}
+              <div className="flex gap-12 items-center">
+                <div className="w-1/2">
+                  <div className="aspect-w-16 aspect-h-9 bg-gray-100 rounded-lg overflow-hidden">
+                    <VideoPlayer 
+                      src="/godot/Run_N.gif"
+                      type="image/gif"
+                    />
+                  </div>
+                </div>
+                <div className="w-1/2">
+                  <p className="text-lg text-gray-800">
+                    You can check out my previous works, where I designed and animated assets in Aseprite 
+                    before successfully implementing them into my game. Every pixel was carefully crafted 
+                    to fit the game's aesthetic, ensuring smooth animations and a cohesive visual style.
+                  </p>
+                </div>
+              </div>
+
+              {/* Third Section - Text Left, GIF Right */}
+              <div className="flex gap-12 items-center">
+                <div className="w-1/2">
+                  <p className="text-lg text-gray-800">
+                    This process deepened my understanding of sprite-based animation, optimization, and 
+                    seamless integration into game engines. From concept to execution, I've refined my 
+                    ability to create immersive, handcrafted visuals that bring the game world to life.
+                  </p>
+                </div>
+                <div className="w-1/2">
+                  <div className="aspect-w-16 aspect-h-9 bg-gray-100 rounded-lg overflow-hidden">
+                    <VideoPlayer 
+                      src="/godot/Run_S.gif"
+                      type="image/gif"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Fourth Section - GIF Left, Text Right */}
+              <div className="flex gap-12 items-center">
+                <div className="w-1/2">
+                  <div className="aspect-w-16 aspect-h-9 bg-gray-100 rounded-lg overflow-hidden">
+                    <VideoPlayer 
+                      src="/godot/Sword_swing.gif"
+                      type="image/gif"
+                    />
+                  </div>
+                </div>
+                <div className="w-1/2">
+                  <p className="text-lg text-gray-800">
+                    {/* Add another paragraph here if needed */}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
       case 'blender':
-        return <p>Blender Works content here.</p>;
+        return (
+          <div className="max-w-[90%] mx-auto">
+            {/* Date display */}
+            <div className="flex justify-end mb-8">
+              <span className="text-gray-500">{dateTime}</span>
+            </div>
+
+            <div className="space-y-12">
+              {/* First Section */}
+              <div className="space-y-8">
+                <h2 className="text-2xl font-bold flex items-center gap-2">
+                  <span className="text-blue-500">🔹</span>
+                  Blender: From Sculpting to Animation—Mastering the Full Pipeline
+                </h2>
+                
+                <div className="text-gray-800 space-y-6">
+                  <p className="text-lg">
+                    My expertise in Blender comes from a combination of freelance experience 
+                    and formal training at Navras Academy. Over the years, I've developed a 
+                    deep understanding of every stage of the 3D pipeline, from sculpting and 
+                    baking to rigging, animation, modeling, and lighting.
+                  </p>
+
+                  <p className="text-lg">
+                    Whether it's character design, environment creation, or cinematic rendering, 
+                    I have the skills to bring ideas to life in high-quality 3D assets. Blender 
+                    has been an essential tool in my workflow, allowing me to create both game-ready 
+                    models and pre-rendered visuals, adapting to the specific needs of each project.
+                  </p>
+                </div>
+              </div>
+
+              {/* Clean Dividing Line */}
+              <hr className="border-t-2 border-blue-500/20" />
+
+              {/* Second Section */}
+              <div className="flex gap-12">
+                {/* Left Content */}
+                <div className="w-1/2">
+                  <div className="text-gray-800 space-y-6 border-r-2 border-blue-500/20 pr-8">
+                    <p className="text-lg">
+                      I blindly jumped into Blender, eager to sculpt a character for my game—a 
+                      decision that quickly turned into a trial by fire. While most start with 
+                      modeling fundamentals, I unknowingly threw myself into advanced sculpting 
+                      techniques, learning through sheer persistence.
+                    </p>
+
+                    <p className="text-lg">
+                      The model you see was sculpted entirely by me—no AI, no shortcuts, just 
+                      a deep dive into the craft. I then retopologized it properly, rigged it 
+                      with bones, and prepared it for full in-game integration. While it was a 
+                      challenging path, it gave me a deep understanding of Blender's sculpting, 
+                      topology, and rigging workflows—one that most would only encounter much later.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Right Content - Image */}
+                <div className="w-1/2">
+                  <div className="relative h-[300px] rounded-lg overflow-hidden">
+                    <Image 
+                      src="/godot/first_blender.jpg"
+                      alt="First Blender Project"
+                      fill
+                      className="object-contain rounded-lg"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Second Dividing Line */}
+              <hr className="border-t-2 border-blue-500/20" />
+
+              {/* Third Section */}
+              <div className="flex gap-12">
+                {/* Left Content */}
+                <div className="w-1/2">
+                  <div className="text-gray-800 space-y-6 border-r-2 border-blue-500/20 pr-8">
+                    <p className="text-lg">
+                      After successfully sculpting an entire character from scratch, I shifted my focus 
+                      toward refining both modeling and sculpting techniques. Through extensive practice 
+                      and structured training at Navras Academy, I honed my skills across various aspects 
+                      of 3D design, topology, and detailing.
+                    </p>
+
+                    <p className="text-lg mt-4">
+                      Here are some of my works, showcasing my progress and dedication to the craft:
+                    </p>
+                  </div>
+                </div>
+
+                {/* Right Content - For Images */}
+                <div className="w-1/2">
+                  {/* Add your showcase content here */}
+                </div>
+              </div>
+            </div>
+          </div>
+        );
       case 'photoshop':
         return <p>Photoshop content here.</p>;
       default:
