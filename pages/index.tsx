@@ -3,11 +3,10 @@ import { FaUser, FaLightbulb, FaFileAlt, FaGlobe, FaMobile, FaUnity } from 'reac
 import { BiLogoBlender } from 'react-icons/bi';
 import { SiGodotengine, SiAdobephotoshop } from 'react-icons/si';
 import { MdEmail } from 'react-icons/md';
-import { BsInstagram, BsLinkedin, BsGithub } from 'react-icons/bs';
+import { BsLinkedin, BsGithub } from 'react-icons/bs';
 import Image from 'next/image';
 import ImageSlider from '../components/ImageSlider';
 import VideoPlayer from '../components/VideoPlayer';
-import GifCarousel from '../components/GifCarousel';
 
 // We'll define the possible sections as a TypeScript type.
 type Section = 'about' | 'ideas' | 'cv' | 'webapps' | 'mobileapps' | 'unreal' | 'godot' | 'blender' | 'photoshop';
@@ -16,11 +15,10 @@ export default function HomePage() {
   // This state variable tracks which section is currently active.
   const [activeSection, setActiveSection] = useState<Section>('about');
   const [dateTime, setDateTime] = useState('');
-  const [currentSlide, setCurrentSlide] = useState(0);
   const unrealSlides = [
-    '/blender/model-gray.jpg',
-    '/blender/model-colored.jpg',
-    '/blender/model-scene.jpg'
+    '/images/blender/model-gray.jpg',
+    '/images/blender/model-colored.jpg',
+    '/images/blender/model-scene.jpg'
   ];
 
   useEffect(() => {
@@ -60,14 +58,14 @@ export default function HomePage() {
             <div className="mb-16">
               <div className="text-[32px] leading-[1.4] text-gray-800 space-y-12">
                 <p>
-                  <span className="font-bold">Hey, I'm Erkin Erdoğan</span>—a junior full-stack developer and game developer. 
+                  <span className="font-bold">Hey, I&apos;m Erkin Erdoğan</span>—a junior full-stack developer and game developer. 
                   My journey into technology began at a young age, fueled by an endless curiosity about how things work. 
                   From experimenting with computers to mastering various creative and technical skills, 
-                  I've always sought to push the boundaries of what I can create.
+                  I&apos;ve always sought to push the boundaries of what I can create.
                 </p>
                 
                 <p>
-                  Over the years, I've earned certifications in sculpting, animation, Photoshop, and pixel art, 
+                  Over the years, I&apos;ve earned certifications in sculpting, animation, Photoshop, and pixel art, 
                   allowing me to bring digital worlds to life. Beyond game development, I also specialize in crafting 
                   cinematic scenes and virtual architectural tours, helping architects and designers visualize their 
                   projects in immersive detail.
@@ -96,13 +94,13 @@ export default function HomePage() {
                   The Future of AI Companions
                 </h2>
                 <p className="text-xl text-gray-800 mb-8">
-                  AI today is functional—but not personal. I believe AI can go beyond chatbots and assistants to become truly adaptive, intelligent, and emotionally aware companions. Instead of rigid, pre-programmed responses, imagine an AI that learns, remembers, and evolves with you—an entity that becomes part of your world rather than just a tool.
+                  AI today is functional—but not personal. I believe AI can go beyond chatbots and assistants to become truly adaptive, intelligent, and emotionally aware companions. Instead of rigid, pre-programmed responses, imagine an AI that doesn&apos;t reset every session, but remembers past conversations, moods, and goals to develop a long-term dynamic relationship.
                 </p>
                 <div className="space-y-4">
                   <h3 className="text-lg font-semibold mb-2">Concepts:</h3>
                   <p className="flex items-start gap-3">
                     <span>🤖</span>
-                    <span><strong>Persistent AI Memory</strong> – AI that doesn't reset every session, but remembers past conversations, moods, and goals to develop a long-term dynamic relationship.</span>
+                    <span><strong>Persistent AI Memory</strong> – AI that doesn&apos;t reset every session, but remembers past conversations, moods, and goals to develop a long-term dynamic relationship.</span>
                   </p>
                   <p className="flex items-start gap-3">
                     <span>🎭</span>
@@ -163,7 +161,7 @@ export default function HomePage() {
                 </h2>
                 <p className="text-xl text-gray-800 mb-8">
                   Most mobile apps focus on functionality, but I believe a great app should feel like an extension of your thoughts and habits. 
-                  Whether it's AI-powered personal assistants, habit trackers, or interactive experiences, my focus is on creating fluid, 
+                  Whether it&apos;s AI-powered personal assistants, habit trackers, or interactive experiences, my focus is on creating fluid, 
                   responsive, and intelligent mobile applications.
                 </p>
                 <div className="space-y-4">
@@ -234,7 +232,7 @@ export default function HomePage() {
                 </p>
                 <p className="text-xl text-gray-800 flex items-center gap-2">
                   <span>💡</span>
-                  Which idea sparks your interest? Want to collaborate? Let's talk.
+                  Which idea sparks your interest? Want to collaborate? Let&apos;s talk.
                 </p>
               </section>
             </div>
@@ -253,10 +251,13 @@ export default function HomePage() {
               <section className="flex justify-between items-start gap-8">
                 <div className="flex items-start gap-8">
                   <div className="w-48 h-48 rounded-full overflow-hidden">
-                    <img 
-                      src="/profile.jpg" 
+                    <Image 
+                      src="/images/profile/profile.jpg" 
                       alt="Erkin Erdoğan"
-                      className="w-full h-full object-cover"
+                      width={192}
+                      height={192}
+                      className="object-cover"
+                      priority
                     />
                   </div>
                   <div>
@@ -537,7 +538,7 @@ export default function HomePage() {
                 <p className="text-xl text-gray-800 mb-8">
                   I develop cross-platform mobile applications using .NET MAUI, Flutter, and native frameworks, 
                   ensuring smooth performance across both iOS and Android. My focus is on building intelligent, 
-                  intuitive, and scalable applications that don't just solve problems but enhance daily life.
+                  intuitive, and scalable applications that don&apos;t just solve problems but enhance daily life.
                 </p>
 
                 <div className="space-y-8">
@@ -598,7 +599,7 @@ export default function HomePage() {
               <section className="border-t border-gray-200 pt-8">
                 <p className="text-xl text-gray-800 flex items-center gap-3">
                   <span>💬</span>
-                  Have a mobile app idea? Let's build something together.
+                  Have a mobile app idea? Let&apos;s build something together.
                 </p>
               </section>
             </div>
@@ -624,7 +625,7 @@ export default function HomePage() {
                   {/* New Introduction Section */}
                   <div className="pb-6 border-b border-gray-200">
                     <p className="text-lg mb-4">
-                      I am currently receiving training at Navras Academy, Turkey's first Unreal Engine and 
+                      I am currently receiving training at Navras Academy, Turkey&apos;s first Unreal Engine and 
                       Epic Games-approved academy. Through their structured program, I have earned a certificate 
                       by successfully completing assigned tasks and actively participating in classes.
                     </p>
@@ -638,7 +639,7 @@ export default function HomePage() {
 
                   {/* Existing Content */}
                   <p className="text-lg">
-                    Game development isn't just about finishing a project—it's about what you learn along the way. 
+                    Game development isn&apos;t just about finishing a project—it&apos;s about what you learn along the way. 
                     My experience with Unreal Engine has been a mix of experimentation, frustration, breakthroughs, 
                     and setbacks, and I want to be as honest as possible about it.
                   </p>
@@ -651,14 +652,14 @@ export default function HomePage() {
 
                   <p className="text-lg">
                     But over time, the project fell apart. The plugins I relied on became outdated, conflicting 
-                    with each other, and because I hadn't updated the project regularly, it eventually became unusable. 
+                    with each other, and because I hadn&apos;t updated the project regularly, it eventually became unusable. 
                     That was a hard lesson—one that taught me the importance of maintaining projects, keeping 
                     dependencies in check, and planning ahead for long-term sustainability.
                   </p>
 
                   <div className="pt-6">
                     <p className="text-lg font-semibold mb-4">
-                      Even though I can't showcase any footage from that project, I don't see it as a failure. It taught me:
+                      Even though I can&apos;t showcase any footage from that project, I don&apos;t see it as a failure. It taught me:
                     </p>
                     <ul className="space-y-2">
                       <li className="flex items-center gap-2">
@@ -671,13 +672,13 @@ export default function HomePage() {
                       </li>
                       <li className="flex items-center gap-2">
                         <span className="text-green-500">✔</span>
-                        How Unreal's ecosystem works—from movement mechanics to physics-based interactions.
+                        How Unreal&apos;s ecosystem works—from movement mechanics to physics-based interactions.
                       </li>
                     </ul>
                   </div>
 
                   <p className="text-lg pt-4">
-                    Right now, I'm channeling everything I learned into new projects, and I'll keep posting updates 
+                    Right now, I&apos;m channeling everything I&apos;ve learned into new projects, and I&apos;ll keep posting updates 
                     as I progress. Unreal Engine remains one of my favorite tools, and while that game may never 
                     see the light of day, the experience shaped me into a better developer.
                   </p>
@@ -708,7 +709,7 @@ export default function HomePage() {
                 Godot Game Development
               </h2>
 
-              {/* First Section - Text Left, GIF Right */}
+              {/* First Section - Weapon Preview */}
               <div className="flex gap-12 items-center">
                 <div className="w-1/2">
                   <p className="text-lg text-gray-800">
@@ -719,22 +720,24 @@ export default function HomePage() {
                   </p>
                 </div>
                 <div className="w-1/2">
-                  <div className="aspect-w-16 aspect-h-9 bg-gray-100 rounded-lg overflow-hidden">
-                    <VideoPlayer 
-                      src="/godot/weapon-preview.gif"
-                      type="image/gif"
+                  <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden">
+                    <img 
+                      src="/images/godot/weapon-preview.gif"
+                      alt="Weapon Preview"
+                      className="w-full h-full object-contain"
                     />
                   </div>
                 </div>
               </div>
 
-              {/* Second Section - GIF Left, Text Right */}
+              {/* Second Section - Run North */}
               <div className="flex gap-12 items-center">
                 <div className="w-1/2">
-                  <div className="aspect-w-16 aspect-h-9 bg-gray-100 rounded-lg overflow-hidden">
-                    <VideoPlayer 
-                      src="/godot/Run_N.gif"
-                      type="image/gif"
+                  <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden">
+                    <img 
+                      src="/images/godot/Run_N.gif"
+                      alt="Running Animation North"
+                      className="w-full h-full object-contain"
                     />
                   </div>
                 </div>
@@ -742,37 +745,39 @@ export default function HomePage() {
                   <p className="text-lg text-gray-800">
                     You can check out my previous works, where I designed and animated assets in Aseprite 
                     before successfully implementing them into my game. Every pixel was carefully crafted 
-                    to fit the game's aesthetic, ensuring smooth animations and a cohesive visual style.
+                    to fit the game&apos;s aesthetic, ensuring smooth animations and a cohesive visual style.
                   </p>
                 </div>
               </div>
 
-              {/* Third Section - Text Left, GIF Right */}
+              {/* Third Section - Run South */}
               <div className="flex gap-12 items-center">
                 <div className="w-1/2">
-                  <p className="text-lg text-gray-800">
-                    This process deepened my understanding of sprite-based animation, optimization, and 
-                    seamless integration into game engines. From concept to execution, I've refined my 
-                    ability to create immersive, handcrafted visuals that bring the game world to life.
-                  </p>
-                </div>
-                <div className="w-1/2">
-                  <div className="aspect-w-16 aspect-h-9 bg-gray-100 rounded-lg overflow-hidden">
-                    <VideoPlayer 
-                      src="/godot/Run_S.gif"
-                      type="image/gif"
+                  <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden">
+                    <img 
+                      src="/images/godot/Run_S.gif"
+                      alt="Running Animation South"
+                      className="w-full h-full object-contain"
                     />
                   </div>
                 </div>
+                <div className="w-1/2">
+                  <p className="text-lg text-gray-800">
+                    This process deepened my understanding of sprite-based animation, optimization, and 
+                    seamless integration into game engines. From concept to execution, I&apos;ve refined my 
+                    ability to create immersive, handcrafted visuals that bring the game world to life.
+                  </p>
+                </div>
               </div>
 
-              {/* Fourth Section - GIF Left, Text Right */}
+              {/* Fourth Section - Sword Swing */}
               <div className="flex gap-12 items-center">
                 <div className="w-1/2">
-                  <div className="aspect-w-16 aspect-h-9 bg-gray-100 rounded-lg overflow-hidden">
-                    <VideoPlayer 
-                      src="/godot/Sword_swing.gif"
-                      type="image/gif"
+                  <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden">
+                    <img 
+                      src="/images/godot/Sword_swing.gif"
+                      alt="Sword Swing Animation"
+                      className="w-full h-full object-contain"
                     />
                   </div>
                 </div>
@@ -804,13 +809,13 @@ export default function HomePage() {
                 <div className="text-gray-800 space-y-6">
                   <p className="text-lg">
                     My expertise in Blender comes from a combination of freelance experience 
-                    and formal training at Navras Academy. Over the years, I've developed a 
+                    and formal training at Navras Academy. Over the years, I&apos;ve developed a 
                     deep understanding of every stage of the 3D pipeline, from sculpting and 
                     baking to rigging, animation, modeling, and lighting.
                   </p>
 
                   <p className="text-lg">
-                    Whether it's character design, environment creation, or cinematic rendering, 
+                    Whether it&apos;s character design, environment creation, or cinematic rendering, 
                     I have the skills to bring ideas to life in high-quality 3D assets. Blender 
                     has been an essential tool in my workflow, allowing me to create both game-ready 
                     models and pre-rendered visuals, adapting to the specific needs of each project.
@@ -837,7 +842,7 @@ export default function HomePage() {
                       The model you see was sculpted entirely by me—no AI, no shortcuts, just 
                       a deep dive into the craft. I then retopologized it properly, rigged it 
                       with bones, and prepared it for full in-game integration. While it was a 
-                      challenging path, it gave me a deep understanding of Blender's sculpting, 
+                      challenging path, it gave me a deep understanding of Blender&apos;s sculpting, 
                       topology, and rigging workflows—one that most would only encounter much later.
                     </p>
                   </div>
@@ -847,7 +852,7 @@ export default function HomePage() {
                 <div className="w-1/2">
                   <div className="relative h-[300px] rounded-lg overflow-hidden">
                     <Image 
-                      src="/godot/first_blender.jpg"
+                      src="/images/blender/first_blender.jpg"
                       alt="First Blender Project"
                       fill
                       className="object-contain rounded-lg"
@@ -882,7 +887,7 @@ export default function HomePage() {
                 <div className="w-1/2">
                   <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden">
                     <ImageSlider 
-                      images={['/godot/demon.jpg', '/godot/fox.jpg', '/godot/plane.jpg']} 
+                      images={['/images/blender/demon.jpg', '/images/blender/fox.jpg', '/images/blender/plane.jpg']} 
                       height="300px"
                     />
                   </div>
@@ -916,7 +921,7 @@ export default function HomePage() {
                 <div className="w-1/2">
                   <div className="relative h-[300px] rounded-lg overflow-hidden">
                     <VideoPlayer 
-                      src="/godot/robot.gif"
+                      src="/images/blender/robot.gif"
                       type="image/gif"
                     />
                   </div>
@@ -968,7 +973,7 @@ export default function HomePage() {
                     </ul>
 
                     <p className="text-lg">
-                      Whether it's a simple design or a complex layered composition, Photoshop became 
+                      Whether it&apos;s a simple design or a complex layered composition, Photoshop became 
                       an essential tool in my workflow, allowing me to create high-quality assets for 
                       both gaming and web development.
                     </p>
@@ -980,20 +985,20 @@ export default function HomePage() {
                   <div className="relative rounded-lg overflow-hidden">
                     <ImageSlider 
                       images={[
-                        '/godot/1.jpg',
-                        '/godot/2.jpg',
-                        '/godot/3.jpg',
-                        '/godot/4.jpg',
-                        '/godot/5.jpg',
-                        '/godot/6.jpg',
-                        '/godot/7.jpg',
-                        '/godot/8.jpg',
-                        '/godot/9.jpg',
-                        '/godot/10.jpg',
-                        '/godot/11.jpg',
-                        '/godot/12.jpg',
-                        '/godot/13.jpg',
-                        '/godot/14.jpg'
+                        '/images/photoshop/1.jpg',
+                        '/images/photoshop/2.jpg',
+                        '/images/photoshop/3.jpg',
+                        '/images/photoshop/4.jpg',
+                        '/images/photoshop/5.jpg',
+                        '/images/photoshop/6.jpg',
+                        '/images/photoshop/7.jpg',
+                        '/images/photoshop/8.jpg',
+                        '/images/photoshop/9.jpg',
+                        '/images/photoshop/10.jpg',
+                        '/images/photoshop/11.jpg',
+                        '/images/photoshop/12.jpg',
+                        '/images/photoshop/13.jpg',
+                        '/images/photoshop/14.jpg'
                       ]} 
                       height="90vh"
                     />

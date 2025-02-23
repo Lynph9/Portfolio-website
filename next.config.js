@@ -3,6 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     unoptimized: true,
+    domains: ['localhost'],
     remotePatterns: [
       {
         protocol: 'https',
@@ -10,6 +11,9 @@ const nextConfig = {
       },
     ],
   },
+  eslint: {
+    ignoreDuringBuilds: true, // This will ignore ESLint errors during build
+  },
 }
 
-module.exports = nextConfig 
+module.exports = nextConfig

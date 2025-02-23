@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+import Image from 'next/image';
 
 interface GifCarouselProps {
   gifs: string[];
@@ -84,10 +85,12 @@ export default function GifCarousel({ gifs }: GifCarouselProps) {
               index < currentIndex ? 'opacity-0 -translate-x-full' : 'opacity-0 translate-x-full'
             }`}
           >
-            <img 
+            <Image 
               src={gif}
               alt={`Game Animation ${index + 1}`}
-              className="w-full h-full object-contain"
+              fill
+              className="object-contain"
+              priority
               onError={() => handleImageError(gif)}
             />
           </div>
