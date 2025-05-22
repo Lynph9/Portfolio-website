@@ -312,12 +312,11 @@ export default function HomePage() {
                   </div>
 
                   <div>
-                    <h3 className="text-xl font-semibold">Freelance Indie Game Developer – Hypercasual & Mobile Game Clones</h3>
-                    <p className="text-gray-600 mb-3">February 2018 – December 2020</p>
+                    <h3 className="text-xl font-semibold">App Developer - Veterinery Healthcare Supplementary System</h3>
+                    <p className="text-gray-600 mb-3">February 2022 - Still Ongoing</p>
                     <ul className="space-y-2 text-gray-800">
-                      <li>• Developed and released 20+ hypercasual games and clones of popular mobile titles.</li>
-                      <li>• Managed the complete development cycle from concept to deployment across various platforms.</li>
-                      <li>• Applied agile methodologies to iterate quickly and meet project deadlines.</li>
+                      <li>• For three years I have been developing AI integrated mobile applications, My current project is Veterinary Healthcare Supplementary System.</li>
+                      <li>• More detailed info can be found in my portfolio website.</li>
                     </ul>
                   </div>
                 </div>
@@ -541,44 +540,31 @@ export default function HomePage() {
                   intuitive, and scalable applications that don&apos;t just solve problems but enhance daily life.
                 </p>
 
-                <div className="space-y-8">
-                  <div>
-                    <h3 className="text-lg font-semibold mb-4">Concepts & Experience:</h3>
-                    <div className="space-y-6">
-                      <div className="flex items-start gap-3">
-                        <span className="text-2xl">📱</span>
-                        <div>
-                          <p className="font-semibold">Mood Tracker App [In Development]</p>
-                          <p className="text-gray-800">
-                            Currently building a private AI-driven mood tracking app designed for personal 
-                            well-being and self-improvement, available for iOS and Android. 
-                            (Details remain confidential.)
-                          </p>
-                        </div>
-                      </div>
-
-                      <div className="flex items-start gap-3">
-                        <span className="text-2xl">⚽</span>
-                        <div>
-                          <p className="font-semibold">Online Soccer Scheduling App (2023-2025)</p>
-                          <p className="text-gray-800">
-                            Developed an automated scheduling platform that allows players to find, organize, 
-                            and rate matches, streamlining game coordination for sports communities.
-                          </p>
-                        </div>
-                      </div>
-
-                      <div className="flex items-start gap-3">
-                        <span className="text-2xl">🧠</span>
-                        <div>
-                          <p className="font-semibold">Smart Productivity Apps</p>
-                          <p className="text-gray-800">
-                            Exploring habit-building apps, gamified task managers, and AI-assisted learning 
-                            platforms that track progress dynamically.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
+                {/* New Slider and Text Section */}
+                <div className="flex flex-col md:flex-row gap-8 items-start mt-8">
+                  <div className="w-full md:w-1/2">
+                    <ImageSlider 
+                      images={[
+                        '/images/MobileApplications/WhatsApp Image 2025-05-22 at 22.05.39.jpeg',
+                        '/images/MobileApplications/WhatsApp Image 2025-05-22 at 22.05.38 (1).jpeg',
+                        '/images/MobileApplications/WhatsApp Image 2025-05-22 at 22.05.38.jpeg',
+                        '/images/MobileApplications/WhatsApp Image 2025-05-22 at 22.05.37 (1).jpeg',
+                        '/images/MobileApplications/WhatsApp Image 2025-05-22 at 22.05.37.jpeg'
+                      ]} 
+                      height="450px" // Adjusted height
+                    />
+                  </div>
+                  <div className="w-full md:w-1/2 space-y-4">
+                    <h3 className="text-xl font-semibold text-gray-800">A Glimpse into My Current Project</h3>
+                    <p className="text-lg text-gray-700">
+                      Here&apos;s a sneak peek of an application currently in development. As it is in the testing phase 
+                      and involves sensitive elements, I am unable to share comprehensive details or full functionality 
+                      at this time due to confidentiality and copyright considerations. 
+                    </p>
+                    <p className="text-lg text-gray-700">
+                      I am committed to providing a more thorough update and showcasing the complete project once it is 
+                      officially released. Thank you for your understanding.
+                    </p>
                   </div>
                 </div>
               </section>
