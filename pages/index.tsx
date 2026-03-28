@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaUser, FaLightbulb, FaFileAlt, FaGlobe, FaMobile } from 'react-icons/fa';
+import { FaUser, FaLightbulb, FaFileAlt, FaGlobe, FaMobile, FaBars, FaTimes } from 'react-icons/fa';
 import { FaUnity } from 'react-icons/fa6';
 import { BiLogoBlender } from 'react-icons/bi';
 import { SiGodotengine, SiUnrealengine } from 'react-icons/si';
@@ -12,6 +12,7 @@ type Section = 'about' | 'ideas' | 'cv' | 'webapps' | 'mobileapps' | 'unity' | '
 
 export default function HomePage() {
   const [activeSection, setActiveSection] = useState<Section>('about');
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const navItems: { section: Section; label: string; icon: React.ReactNode }[] = [
     { section: 'about', label: 'About', icon: <FaUser /> },
@@ -681,82 +682,109 @@ export default function HomePage() {
     }
   };
 
+  const handleNav = (section: Section) => {
+    setActiveSection(section);
+    setMenuOpen(false);
+  };
+
+  const sidebarContent = (
+    <>
+      <nav className="flex-1 space-y-6">
+        <div>
+          {navItems.map((item) => (
+            <button
+              key={item.section}
+              onClick={() => handleNav(item.section)}
+              className={`w-full text-left py-2.5 px-3 rounded-lg text-sm font-medium flex items-center gap-3 transition-all mb-1
+                ${activeSection === item.section
+                  ? 'bg-accent/15 text-accent-light border-l-2 border-accent'
+                  : 'text-gray-400 hover:bg-white/5 hover:text-gray-200 border-l-2 border-transparent'
+                }`}
+            >
+              <span className="text-base">{item.icon}</span>
+              <span>{item.label}</span>
+            </button>
+          ))}
+        </div>
+
+        <div>
+          <h2 className="text-[10px] text-gray-600 uppercase tracking-widest mb-2 px-3 font-semibold">Fullstack</h2>
+          {fullstackItems.map((item) => (
+            <button
+              key={item.section}
+              onClick={() => handleNav(item.section)}
+              className={`w-full text-left py-2 px-3 rounded-lg text-sm flex items-center gap-3 transition-all mb-0.5
+                ${activeSection === item.section
+                  ? 'bg-accent/15 text-accent-light border-l-2 border-accent'
+                  : 'text-gray-500 hover:bg-white/5 hover:text-gray-300 border-l-2 border-transparent'
+                }`}
+            >
+              <span className="text-base">{item.icon}</span>
+              <span>{item.label}</span>
+            </button>
+          ))}
+        </div>
+
+        <div>
+          <h2 className="text-[10px] text-gray-600 uppercase tracking-widest mb-2 px-3 font-semibold">Projects</h2>
+          {projectItems.map((item) => (
+            <button
+              key={item.section}
+              onClick={() => handleNav(item.section)}
+              className={`w-full text-left py-2 px-3 rounded-lg text-sm flex items-center gap-3 transition-all mb-0.5
+                ${activeSection === item.section
+                  ? 'bg-accent/15 text-accent-light border-l-2 border-accent'
+                  : 'text-gray-500 hover:bg-white/5 hover:text-gray-300 border-l-2 border-transparent'
+                }`}
+            >
+              <span className="text-base">{item.icon}</span>
+              <span>{item.label}</span>
+            </button>
+          ))}
+        </div>
+      </nav>
+
+      <div className="border-t border-white/5 pt-4 mt-4">
+        <h2 className="text-[10px] text-gray-600 uppercase tracking-widest mb-2 px-3 font-semibold">Contact</h2>
+        <div className="space-y-0.5">
+          <a href="mailto:erkinerdogan.dev@gmail.com" className="flex items-center gap-3 py-2 px-3 text-sm text-gray-500 hover:text-accent-light hover:bg-white/5 rounded-lg transition-all">
+            <MdEmail className="text-base" /> <span>Mail</span>
+          </a>
+          <a href="https://github.com/Lynph9" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 py-2 px-3 text-sm text-gray-500 hover:text-accent-light hover:bg-white/5 rounded-lg transition-all">
+            <BsGithub className="text-base" /> <span>GitHub</span>
+          </a>
+          <a href="https://www.linkedin.com/in/erkinerdoan" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 py-2 px-3 text-sm text-gray-500 hover:text-accent-light hover:bg-white/5 rounded-lg transition-all">
+            <BsLinkedin className="text-base" /> <span>LinkedIn</span>
+          </a>
+        </div>
+      </div>
+    </>
+  );
+
   return (
     <div className="flex min-h-screen bg-dark-900 noise-bg">
-      {/* Sidebar */}
-      <aside className="w-60 bg-dark-800/50 backdrop-blur-sm border-r border-white/5 p-5 flex flex-col fixed h-screen z-10">
-        <nav className="flex-1 space-y-6">
-          <div>
-            {navItems.map((item) => (
-              <button
-                key={item.section}
-                onClick={() => setActiveSection(item.section)}
-                className={`w-full text-left py-2.5 px-3 rounded-lg text-sm font-medium flex items-center gap-3 transition-all mb-1
-                  ${activeSection === item.section
-                    ? 'bg-accent/15 text-accent-light border-l-2 border-accent'
-                    : 'text-gray-400 hover:bg-white/5 hover:text-gray-200 border-l-2 border-transparent'
-                  }`}
-              >
-                <span className="text-base">{item.icon}</span>
-                <span>{item.label}</span>
-              </button>
-            ))}
-          </div>
 
-          <div>
-            <h2 className="text-[10px] text-gray-600 uppercase tracking-widest mb-2 px-3 font-semibold">Fullstack</h2>
-            {fullstackItems.map((item) => (
-              <button
-                key={item.section}
-                onClick={() => setActiveSection(item.section)}
-                className={`w-full text-left py-2 px-3 rounded-lg text-sm flex items-center gap-3 transition-all mb-0.5
-                  ${activeSection === item.section
-                    ? 'bg-accent/15 text-accent-light border-l-2 border-accent'
-                    : 'text-gray-500 hover:bg-white/5 hover:text-gray-300 border-l-2 border-transparent'
-                  }`}
-              >
-                <span className="text-base">{item.icon}</span>
-                <span>{item.label}</span>
-              </button>
-            ))}
-          </div>
+      {/* Mobile top bar */}
+      <div className="md:hidden fixed top-0 left-0 right-0 z-20 flex items-center justify-between px-4 py-3 bg-dark-800/90 backdrop-blur-sm border-b border-white/5">
+        <span className="text-white font-semibold text-sm">Erkin Erdoğan</span>
+        <button onClick={() => setMenuOpen(!menuOpen)} className="text-gray-400 hover:text-white transition-colors p-1">
+          {menuOpen ? <FaTimes size={18} /> : <FaBars size={18} />}
+        </button>
+      </div>
 
-          <div>
-            <h2 className="text-[10px] text-gray-600 uppercase tracking-widest mb-2 px-3 font-semibold">Projects</h2>
-            {projectItems.map((item) => (
-              <button
-                key={item.section}
-                onClick={() => setActiveSection(item.section)}
-                className={`w-full text-left py-2 px-3 rounded-lg text-sm flex items-center gap-3 transition-all mb-0.5
-                  ${activeSection === item.section
-                    ? 'bg-accent/15 text-accent-light border-l-2 border-accent'
-                    : 'text-gray-500 hover:bg-white/5 hover:text-gray-300 border-l-2 border-transparent'
-                  }`}
-              >
-                <span className="text-base">{item.icon}</span>
-                <span>{item.label}</span>
-              </button>
-            ))}
-          </div>
-        </nav>
-
-        <div className="border-t border-white/5 pt-4 mt-4">
-          <h2 className="text-[10px] text-gray-600 uppercase tracking-widest mb-2 px-3 font-semibold">Contact</h2>
-          <div className="space-y-0.5">
-            <a href="mailto:erkinerdogan.dev@gmail.com" className="flex items-center gap-3 py-2 px-3 text-sm text-gray-500 hover:text-accent-light hover:bg-white/5 rounded-lg transition-all">
-              <MdEmail className="text-base" /> <span>Mail</span>
-            </a>
-            <a href="https://github.com/Lynph9" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 py-2 px-3 text-sm text-gray-500 hover:text-accent-light hover:bg-white/5 rounded-lg transition-all">
-              <BsGithub className="text-base" /> <span>GitHub</span>
-            </a>
-            <a href="https://www.linkedin.com/in/erkinerdoan" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 py-2 px-3 text-sm text-gray-500 hover:text-accent-light hover:bg-white/5 rounded-lg transition-all">
-              <BsLinkedin className="text-base" /> <span>LinkedIn</span>
-            </a>
-          </div>
+      {/* Mobile menu overlay */}
+      {menuOpen && (
+        <div className="md:hidden fixed inset-0 z-10 bg-dark-900/95 backdrop-blur-sm pt-14 px-5 pb-5 flex flex-col overflow-y-auto">
+          {sidebarContent}
         </div>
+      )}
+
+      {/* Desktop sidebar */}
+      <aside className="hidden md:flex w-60 bg-dark-800/50 backdrop-blur-sm border-r border-white/5 p-5 flex-col fixed h-screen z-10">
+        {sidebarContent}
       </aside>
 
-      <main className="flex-1 ml-60 p-10 relative z-[1]">
+      <main className="flex-1 md:ml-60 p-5 md:p-10 pt-16 md:pt-10 relative z-[1]">
         {renderContent()}
       </main>
     </div>
