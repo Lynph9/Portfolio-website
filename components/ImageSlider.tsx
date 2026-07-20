@@ -15,7 +15,7 @@ export default function ImageSlider({ images, height = '400px' }: ImageSliderPro
   if (!images.length) return null;
 
   return (
-    <div className="relative w-full rounded-xl overflow-hidden" style={{ height }}>
+    <div className="relative w-full rounded-sm overflow-hidden border-2 border-ink shadow-hard bg-paper-light" style={{ height }}>
       <div className="relative w-full h-full">
         <Image
           src={images[currentIndex]}
@@ -30,13 +30,15 @@ export default function ImageSlider({ images, height = '400px' }: ImageSliderPro
         <>
           <button
             onClick={goToPrevious}
-            className="absolute left-3 top-1/2 -translate-y-1/2 bg-dark-800/80 hover:bg-accent/80 text-white w-9 h-9 rounded-full flex items-center justify-center z-10 transition-colors text-sm"
+            aria-label="Previous image"
+            className="absolute left-3 top-1/2 -translate-y-1/2 bg-paper-light border-2 border-ink shadow-hard-sm hover:bg-ink hover:text-paper-light text-ink w-9 h-9 rounded-sm flex items-center justify-center z-10 transition-colors text-sm"
           >
             ←
           </button>
           <button
             onClick={goToNext}
-            className="absolute right-3 top-1/2 -translate-y-1/2 bg-dark-800/80 hover:bg-accent/80 text-white w-9 h-9 rounded-full flex items-center justify-center z-10 transition-colors text-sm"
+            aria-label="Next image"
+            className="absolute right-3 top-1/2 -translate-y-1/2 bg-paper-light border-2 border-ink shadow-hard-sm hover:bg-ink hover:text-paper-light text-ink w-9 h-9 rounded-sm flex items-center justify-center z-10 transition-colors text-sm"
           >
             →
           </button>
@@ -45,9 +47,10 @@ export default function ImageSlider({ images, height = '400px' }: ImageSliderPro
             {images.map((_, index) => (
               <button
                 key={index}
+                aria-label={`Go to image ${index + 1}`}
                 onClick={() => setCurrentIndex(index)}
-                className={`w-2 h-2 rounded-full transition-all ${
-                  index === currentIndex ? 'bg-accent w-5' : 'bg-white/30 hover:bg-white/50'
+                className={`h-2 border border-ink transition-all ${
+                  index === currentIndex ? 'bg-accent w-5' : 'bg-paper-light w-2 hover:bg-paper-dark'
                 }`}
               />
             ))}
